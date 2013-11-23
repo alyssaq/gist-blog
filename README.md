@@ -1,6 +1,6 @@
 Gist blog using web components
 ==
-
+Pull gists and display a list. Displayed gists can be filtered by a hashtag in the description.
 
 Demo
 ==
