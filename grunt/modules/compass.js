@@ -5,7 +5,7 @@ module.exports = {
     imagesDir: '<%= source %>/images',
     javascriptsDir: '<%= source %>/scripts',
     fontsDir: '<%= source %>/styles/fonts',
-    importPath: '<%= source %>/bower_components',
+  //  importPath: '<%= source %>/bower_components',
     relativeAssets: true
   },
   production: {},

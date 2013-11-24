@@ -20,16 +20,39 @@
        <h1>Welcome to Alyssa's blog!</h1>
       </header>
       <main>
+        <blog-element></blog-element>
       </main>
 
       <script>
-        document.addEventListener('WebComponentsReady', function() {
-            // Perform some behaviour
+        var XBlogProto = Object.create(HTMLElement.prototype);
+
+        // 1. Give the custom element proto a setter function
+        XBlogProto.url = function() {
+          alert("set url");
+        };
+
+        //createdCallback: an instance of the element is created
+        //enteredViewCallback: an instance was inserted into the document
+        //leftViewCallback:  an instance was removed from the document
+        //attributeChangedCallback(attrName, oldVal, newVal):  an attribute was added, removed, or updated
+        // 2a. Tap into lifecycle callback and edit the custom element
+        XBlogProto.createdCallback = function() {
+          this.innerHTML = "<b>Hi there</b>";
+          this.addEventListener("click", function(e) {
+            alert("Thanks");
+          });
+        };
+        // 2b. Give the custom element proto a read-only property
+        Object.defineProperty(XBlogProto, "name",  {value: "alyssa"});
+
+        // 3. Register blog-element
+        var XBlogElem = document.register('blog-element', {
+          prototype: XBlogProto
         });
       </script>
 
 
-      <script src="scripts/index.js"></script>
+<!--      <script src="scripts/index.js"></script>-->
 
 </body>
 </html>
