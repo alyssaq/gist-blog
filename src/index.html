@@ -17,7 +17,7 @@
     </head>
     <body>
       <header>
-       <h1>Welcome to Alyssa's blog!</h1>
+       <h1>Welcome to <span id="elem-name" contenteditable="true">Alyssa</span>'s blog!</h1>
       </header>
       <main>
         <blog-element></blog-element>
@@ -32,7 +32,9 @@
         };
 
         // 2a. Give the custom element proto a read-only property
-        Object.defineProperty(XBlogProto, "name",  {value: "alyssa"});
+        Object.defineProperty(XBlogProto, "name",  {
+          value: document.getElementById("elem-name").innerHTML
+        });
 
         //createdCallback: an instance of the element is created
         //enteredViewCallback: an instance was inserted into the document
