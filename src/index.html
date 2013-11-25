@@ -44,7 +44,7 @@
         XBlogProto.createdCallback = function() {
           this.innerHTML = "<b>Hi there. Click me</b>";
           this.addEventListener("click", function(e) {
-            alert("Hi " + this.name);
+            alert("Hi " + document.getElementById("elem-name").innerHTML);
           });
         };
         
