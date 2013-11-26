@@ -33,7 +33,7 @@
 
         // 2a. Give the custom element proto a read-only property
         Object.defineProperty(XBlogProto, "name",  {
-          value: document.getElementById("elem-name").innerHTML
+          value: document.getElementById("elem-name").textContent
         });
 
         //createdCallback: an instance of the element is created
@@ -44,7 +44,7 @@
         XBlogProto.createdCallback = function() {
           this.innerHTML = "<b>Hi there. Click me</b>";
           this.addEventListener("click", function(e) {
-            alert("Hi " + document.getElementById("elem-name").innerHTML);
+            alert("Hi " + document.getElementById("elem-name").textContent);
           });
         };
         
